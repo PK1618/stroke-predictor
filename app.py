@@ -45,15 +45,15 @@ def predict():
 
     logging.info(f"Scaled user input data: {user_scaler}")
 
-    prediction_prob = model.predict(user_scaler)
-    predictions = (prediction_prob > 0.5).astype(int)
+    prediction_probabilities = model.predict(user_scaler)
+    predictions = (prediction_probabilities > 0.5).astype(int)
 
     logging.info(f"Prediction: {predictions}")
-    logging.info(f"Prediction probabilities: {prediction_prob}")
+    logging.info(f"Prediction probabilities: {prediction_probabilities}")
 
     # Prepare the result
-    prediction_result = int(predictions[0])
-    prediction_probability = prediction_prob[0][0]
+    prediction_result = predictions[0][0]
+    prediction_probability = prediction_probabilities[0][0]
 
     result = {
         'prediction': 'Positive' if prediction_result == 1 else 'Negative',
