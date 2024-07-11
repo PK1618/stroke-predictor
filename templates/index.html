@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body class="container">
+        <h1>Enter information below</h1>
+        <form action="/predict" method="POST">
+                <div class="items">
+                        <div>
+                                <div class='formGroup'>
+                                        <h3>Choose Gender:</h3>
+                                        <input type="radio" id="male" name="gender" value="Male" checked="checked">
+                                        <label for="male">Male</label><br>
+                                        <input type="radio" id="female" name="gender" value="Female">
+                                        <label for="female">Female</label><br><br>
+                                </div>
+                                <div class='formGroup'>
+                                        <h3>Choose Age:</h3>
+                                        <label for="ageRange">Age: <span id="ageValue">30</span></label><br>
+                                        <input type="range" id="ageRange" name="age" min="0" max="100" value="30"
+                                                oninput="updateAgeValue(this.value)">
+                                </div>
+                                <div class='formGroup'>
+                                        <h3>Hyper Tension:</h3>
+                                        <input type="radio" id="yes" name="ht" value="Yes" checked="checked">
+                                        <label for="yes">Yes</label><br>
+                                        <input type="radio" id="no" name="ht" value="No">
+                                        <label for="no">No</label><br><br>
+                                </div>
+                                <div class='formGroup'>
+                                        <h3>Heart Disease:</h3>
+                                        <input type="radio" id="yes" name="hd" value="Yes" checked="checked">
+                                        <label for="yes">Yes</label><br>
+                                        <input type="radio" id="no" name="hd" value="No">
+                                        <label for="no">No</label><br><br>
+                                </div>
+                                <div class='formGroup'>
+                                        <h3>Married?:</h3>
+                                        <input type="radio" id="yes" name="marriage" value="Yes" checked="checked">
+                                        <label for="yes">Yes</label><br>
+                                        <input type="radio" id="no" name="marriage" value="No">
+                                        <label for="no">No</label><br><br>
+                                </div>
+                                <div class='formGroup'>
+                                        <h3>Work Type:</h3>
+                                        <!-- <label for="cars">Choose a car:</label> -->
+                                        <select name="WorkType" id="worktype">
+                                                <option value="1">No Work</option>
+                                                <option value="2">Govt-Job</option>
+                                                <option value="3">Self Employed</option>
+                                                <option value="4">Private</option>
+                                        </select>
+                                </div>
+                                <div class='formGroup'>
+                                        <h3>Residence Type:</h3>
+                                        <input type="radio" id="urban" name="Residence" value="Urban" checked="checked">
+                                        <label for="urban">Urban</label><br>
+                                        <input type="radio" id="rural" name="Residence" value="Rural">
+                                        <label for="rural">Rural</label><br><br>
+                                </div>
+                                <div class='formGroup'>
+                                        <h3>Average Glucose Level:</h3>
+                                        <input type="text" id="glucose" name="Glucose"
+                                                placeholder="Average Glucose Level">
+                                </div>
+                                <div class='formGroup'>
+                                        <h3>BMI:</h3>
+                                        <input type="text" id="bmi" name="BMI" placeholder="BMI Value">
+                                </div>
+                                <div class='formGroup'>
+                                        <h3>Smoking?:</h3>
+                                        <input type="radio" id="yes" name="smoker" value="Yes" checked="checked">
+                                        <label for="yes">Yes</label><br>
+                                        <input type="radio" id="no" name="smoker" value="No">
+                                        <label for="no">No</label><br><br>
+                                </div>
+                        </div>
+                        <input type="submit" value="Predict">
+                </div>
+        </form>
+        <script>
+                function updateAgeValue(value) {
+                        document.getElementById('ageValue').innerText = value;
+                }
+        </script>
+</body>
+
+</html>
+
+<!-- <div id="contact" className={styles.container}>
+        <h1 className=''>Details</h1>
+        <form action=''>
+                <div className='formGroup'>
+                        <label htmlFor="sex" hidden>
+                                Sex
+                        </label>
+                        <input type="text" name="sex" id="sex" placeholder="Sex" required />
+                </div>
+                <div className='formGroup'>
+                        <label htmlFor="email" hidden>
+                                Email
+                        </label>
+                        <input type="text" name="email" id="email" placeholder="Email" required />
+                </div>
+                <div className='formGroup'>
+                        <label htmlFor="message" hidden>
+                                Message
+                        </label>
+                        <textarea name="message" id="message" placeholder="Message" required></textarea>
+                </div>
+                <input className='hover-btn' type="submit" value="Submit" />
+        </form>
+</div> -->
